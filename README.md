@@ -1,0 +1,99 @@
+# TPM Interview Prep Skill for Claude
+
+A Claude skill that turns a company name (or job posting URL) plus your resume into a
+**company-specific TPM interview prep guide**: round-by-round breakdowns, likely questions,
+and full answers written from your own experience, plus an honest list of your gaps.
+
+No setup files to edit. Install it, point it at your resume, and go.
+
+## What you get
+
+- Interview process overview (rounds, format, who interviews you, timeline)
+- What the company looks for in a TPM, based on their culture and public interview reports
+- For each round: what is being tested, what a strong answer looks like, recommended frameworks
+- 5-6 questions per round with first-person answers grounded in **your** resume
+- A mandatory **Gaps & Coaching Notes** section with bridging strategies
+- Company-tailored prep action items
+- Output as a downloadable markdown file
+
+## Install
+
+**Claude.ai / Claude Desktop**
+1. Download `tpm-interview-prep.zip` from the latest release (or zip the `tpm-interview-prep/` folder yourself).
+2. Open Claude's Settings, find the Skills section (under Capabilities), and upload the zip.
+3. Make sure Web search is on. Connect Google Drive if you want Claude to read your resume from there.
+
+**Claude Code**
+```bash
+git clone https://github.com/praveenpatri/tpm-interview-prep.git
+cp -r tpm-interview-prep ~/.claude/skills/
+```
+
+## Use: step by step
+
+1. **Prepare your background.** Save your resume (and optionally prepared stories or notes) in Google Drive, ideally in one folder such as "Job Search". No Drive? Keep your resume PDF handy, or have the text ready to paste.
+2. **Turn on the tools.** In Claude, enable Web search. If you're using Drive, connect Google Drive.
+3. **Start a new chat and ask.** Examples:
+
+   > I have a TPM interview at Stripe next week. My resume is in my Google Drive folder "Job Search".
+
+   > /tpm-interview-prep https://jobs.example.com/technical-program-manager-12345 (resume attached)
+
+4. **Answer Claude's questions.** If you didn't give the company or your background, Claude will ask. It may also ask for your target level or which rounds you've already done.
+5. **Wait for the research.** Claude searches for the company's real TPM interview process, reads the job posting, and reads your resume.
+6. **Download your guide.** You get a markdown file named `[Company]-TPM-Interview-Prep.md` with round-by-round Q&As written from your experience, plus Gaps & Coaching Notes.
+7. **Practice.** Ask Claude to run a mock interview for any round, or to rework any answer that doesn't sound like you. Replace any `[your metric here]` placeholders with your real numbers.
+
+Claude accepts your background three ways:
+
+| Option | How |
+|--------|-----|
+| **Google Drive** (recommended) | Give a folder name, file name, or Drive link. Claude finds your resume and any notes or STAR stories in it. |
+| **Upload** | Attach your resume (PDF, DOCX, or text) to the chat. |
+| **Paste** | Paste resume text or a short background summary. |
+
+### Tips for the best output
+- Put your resume **and** any prepared stories, past interview notes, or company research in one Drive folder.
+- Mention your target level (e.g. Senior TPM, L6) if the posting doesn't state it.
+- Tell Claude which rounds you've already finished so it can focus the guide.
+
+## Requirements
+
+| Capability | Required? |
+|-----------|-----------|
+| Web search and web fetch | Yes |
+| Google Drive connector | Optional (upload or paste works too) |
+
+## Privacy
+
+The skill contains no personal data. Your resume is read at run time, only to write your guide,
+and contact details are kept out of the output. Interview reports from the web are anonymous
+and unverified, so treat them as signal, not fact.
+
+## Repo layout
+
+```
+tpm-interview-prep/
+├── SKILL.md                              # Instructions Claude follows
+├── README.md
+├── LICENSE
+└── references/
+    ├── output-template.md                # Structure of the generated guide
+    ├── candidate-profile-template.md     # What to extract from a resume
+    └── frameworks.md                     # STAR, SPADE, DACI, RICE, and more
+```
+
+## Customize
+
+- Change the guide structure in `references/output-template.md`.
+- Add or swap frameworks in `references/frameworks.md`.
+- Change default question counts in the Output Notes section of `SKILL.md`.
+
+## Contributing
+
+Issues and PRs welcome, especially for better round templates for specific companies and
+improvements to the answer quality bar.
+
+## License
+
+MIT. See `LICENSE`.
