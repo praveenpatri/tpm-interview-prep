@@ -7,7 +7,7 @@ description: >
   program manager, or program manager interview, says things like "I have an interview at [company]",
   "help me prep for [company]", "mock interview questions for TPM", shares a job posting URL and wants
   interview help, or runs /tpm-interview-prep. Use it even if they don't say "skill" or "guide".
-  Pulls the candidate's resume and notes from Google Drive (or an uploaded or pasted resume),
+  Pulls the candidate's resume, stories, and notes from Google Drive (or an uploaded or pasted resume),
   researches the company's real interview process on the web, and produces a downloadable markdown guide.
 compatibility: "Requires web search and web fetch. Google Drive connector is optional but recommended (falls back to resume upload or paste)."
 ---
@@ -25,13 +25,24 @@ using it, at run time.
 
 ## Step 0 — Collect Inputs
 
-If the user's message doesn't already include them, ask for both in a single message:
+If the user's message doesn't already include them, ask for all three in a single message:
 
 1. **Target company** or **job posting URL** (required)
 2. **Candidate background**, via any one of these paths (in priority order):
    - **A. Google Drive**: a folder name, a file name, or a Drive link containing their resume
    - **B. Uploaded resume**: PDF, DOCX, or text attached in chat
    - **C. Pasted text**: resume text or a short background summary
+3. **Anything beyond the resume** (optional, but it makes the answers much more specific and true to you):
+   - Stories and experiences, including ones that are not on the resume
+   - Questions you have been asked or want to practice
+   - Notes from past interviews or recruiter conversations, feedback from earlier loops
+   - Company research you've already done
+
+   Tell the user they can simply put these in **the same Drive folder** they give you, in any format
+   (Docs, PDFs, Word files, rough notes, bullet lists, transcripts). No template or special structure is needed.
+   You will read and organize them yourself. They can also upload files or paste text in the chat. The user can say
+   "none" or "skip" and the skill proceeds. If they give only a resume, mention once that stories not on
+   the resume would sharpen the guide, and continue.
 
 Optional, ask only if it would change the guide:
 - Target level (e.g. L5, L6, Senior TPM, Principal) if not clear from the job posting
@@ -73,6 +84,33 @@ Read the resume first, then skim any other files in the folder. Extract using
 - Programs led: scope, scale, stakeholders, outcomes, metrics
 - Technical domains and depth
 - Any prepared STAR stories, frameworks, or notes on the target company
+
+### Supplemental materials (all paths)
+
+Read every extra item the user shares in Step 0 or that sits in the named Drive folder: stories, question
+lists, interview notes, company research. Users will not format these for you, so expect rough, mixed material.
+
+- **List the whole folder.** Page through all results (use the next-page token) and include subfolders the
+  user clearly meant to share. Judge relevance by file name and a quick look at the content.
+- **Skip bulk reference material.** Very large files (for example hundreds-of-pages study guides or
+  system design archives) and files unrelated to the person's own experience don't need a full read.
+  Skim the title or first page, and use them only if they hold the user's own notes.
+- **Never use other people's material.** The same identity rule applies to stories and notes.
+- **Do the structuring yourself.** Turn rough notes and bullet lists into stories internally (situation, task,
+  actions, result, numbers, people involved). Don't ask the user to reformat anything. Ask a question only
+  when a missing fact would make an answer misleading.
+- **Be transparent.** In your chat summary, list which files you used for the resume, the stories, and
+  the notes, so the user can spot a wrong or outdated file.
+
+Then:
+
+- Treat details the user wrote in their own stories as **facts**. They need no `[add]` or `[verify]` tag.
+- **Prefer the user's own stories** over drafted scaffolds. Match each story to the questions and rounds it
+  fits best. A story can be reused in more than one round, but vary the angle.
+- If the user lists questions they want to practice, include them in the most fitting round, and
+  say so in the guide.
+- If a story is missing a number or an outcome, tag only that gap with `[add: ...]`.
+- Don't copy another person's stories or a template's sample text into the guide as the user's own.
 
 **If Drive is unavailable, the file is not found, or the folder is empty:**
 - Say so plainly: _"I couldn't access that Drive location. It may be a name, sharing, or connector issue."_
@@ -141,6 +179,9 @@ every inferred item. Never silently fill gaps.
 Before drafting, map internally:
 - Which of the candidate's experiences best fit each round's focus?
 - Which stories carry the strongest signal for this company's values?
+- Build a **story coverage map**: for each round and likely question, which of the user's real stories fits?
+  List the questions that have no good story. These go into the guide as "Stories to prepare" so the user
+  knows exactly what to write.
 - Where is the candidate's background **thin** relative to this company's expectations?
   These become the Gaps & Coaching Notes.
 - Compare the candidate's current or most recent level with the target level. If the target is a step up,
@@ -194,6 +235,8 @@ sources support. Label rounds you predicted rather than confirmed by an official
 | Sparse public interview data | State it, infer from culture and comparable companies, flag inferences |
 | Job posting URL won't load | Ask the user to paste the posting text |
 | Drive search returns someone else's resume | Ignore it. Use only a resume that matches the user's name |
+| User has stories or notes not on the resume | Ask for them in Step 0, use them as facts, prefer them over drafted scaffolds |
+| User has no stories yet | Proceed with `[add]` and `[verify]` scaffolds, and list "Stories to prepare" in the guide |
 | Job ID given with no company | Try one or two searches, then ask for the company or URL |
 | Job ID conflicts with the posting URL | Tell the user and ask them to confirm the role |
 

@@ -29,9 +29,25 @@ git clone https://github.com/praveenpatri/tpm-interview-prep.git
 cp -r tpm-interview-prep ~/.claude/skills/
 ```
 
+## First run: what Claude will ask you
+
+There is no setup step. The first time you use the skill, Claude asks for three things in one message:
+
+1. **The company or job posting URL.**
+2. **Your background:** a Google Drive folder or file, an uploaded resume, or pasted text.
+3. **Anything beyond your resume** (optional): stories and experiences that aren't on your resume, questions
+   you've been asked, notes from past interviews, or company research. You can say "skip."
+
+**You don't need to format anything.** Drop your resume and any stories or notes into the same Drive folder,
+in whatever form they exist: Google Docs, Word files, PDFs, rough bullet points, even interview transcripts.
+Claude reads them, organizes your stories itself, and uses them as facts in the guide.
+
+Claude doesn't remember anything between chats on its own. To avoid re-sharing, keep everything in one
+Drive folder and name it each time (for example, "my Job Search folder").
+
 ## Use: step by step
 
-1. **Prepare your background.** Save your resume (and optionally prepared stories or notes) in Google Drive, ideally in one folder such as "Job Search". No Drive? Keep your resume PDF handy, or have the text ready to paste.
+1. **Prepare your background.** Save your resume, plus any stories and notes (any format), in Google Drive, ideally in one folder such as "Job Search". No Drive? Keep your resume PDF handy, or have the text ready to paste.
 2. **Turn on the tools.** In Claude, enable Web search. If you're using Drive, connect Google Drive.
 3. **Start a new chat and ask.** Examples:
 
@@ -42,7 +58,7 @@ cp -r tpm-interview-prep ~/.claude/skills/
 4. **Answer Claude's questions.** If you didn't give the company or your background, Claude will ask. It may also ask for your target level or which rounds you've already done.
 5. **Wait for the research.** Claude searches for the company's real TPM interview process, reads the job posting, and reads your resume.
 6. **Download your guide.** You get a markdown file named `[Company]-TPM-Interview-Prep.md` with round-by-round Q&As written from your experience, plus Gaps & Coaching Notes.
-7. **Practice.** Ask Claude to run a mock interview for any round, or to rework any answer that doesn't sound like you. Replace any `[your metric here]` placeholders with your real numbers.
+7. **Practice.** Ask Claude to run a mock interview for any round, or to rework any answer that doesn't sound like you. Fill in every `[add: ...]` tag with your real numbers, and keep each `[verify: ...]` detail only if it's true.
 
 Claude accepts your background three ways:
 
@@ -60,7 +76,9 @@ The guide never presents an invented detail as fact, so complete every tag befor
 
 ### Tips for the best output
 - If your Drive has several resume versions, name the folder or file you want used.
-- Put your resume **and** any prepared stories, past interview notes, or company research in one Drive folder.
+- Put your resume **and** your stories, past interview notes, and company research in one Drive folder, then name that folder in your first message.
+- Include stories that are **not** on your resume. They make the best answers.
+- Rough is fine. Claude organizes your notes, so you don't need to write them as polished stories.
 - Mention your target level (e.g. Senior TPM, L6) if the posting doesn't state it.
 - Tell Claude which rounds you've already finished so it can focus the guide.
 
