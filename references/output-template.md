@@ -4,9 +4,15 @@ Use this structure exactly when generating the prep guide. Replace every bracket
 
 ---
 
+> **How to read this guide.** [One short paragraph explaining the two tags: `[add: ...]` = a detail to fill in
+> from your real experience, `[verify: ...]` = a drafted scenario detail to keep only if true. Add: never say an
+> unverified detail in a real interview.]
+
+---
+
 ## 🏢 [Company Name] — TPM Interview Prep Guide
 **Role:** [Role title from posting or inferred]
-**Level:** [Inferred level if available, e.g. "ICT5 / Senior TPM"]
+**Level:** [Level from the posting, or inferred and marked as inferred, e.g. "Senior TPM (L6)"]
 **Date Prepared:** [Today's date]
 
 ---
@@ -36,7 +42,7 @@ Repeat the following block for EACH round:
 
 ---
 
-### Round [N]: [Round Name] — [Who Conducts It]
+### Round [N]: [Round Name] - [Who Conducts It] (add "(predicted)" if not confirmed by an official source)
 
 **Format:** [Phone / Video / Onsite / Panel | Estimated duration]
 **Conducted by:** [Recruiter / Hiring Manager / Senior TPM / Engineer / Bar Raiser]
