@@ -23,6 +23,7 @@ For each role: company, title, dates, org or domain, team size, and **2-4 progra
 - Where the candidate is hands-on vs. conversant
 
 ## Story Bank (candidate's best raw material)
+Source these first from the stories and notes the user shares (Drive, upload, or paste), in whatever format they come. Fall back to resume programs.
 Tag each program or story with the signals it can carry:
 - Influencing without authority
 - Ambiguity / zero-to-one

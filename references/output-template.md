@@ -101,6 +101,12 @@ For each question (5-6 per round by default), use this format:
 
 ---
 
+## 🧩 Story Coverage and Stories to Prepare
+
+[Mandatory. A short table or list mapping each round to the user's real stories used (by name from their materials). Then list the likely questions that have no good story yet, with one line on what kind of story would fit. If the user shared no stories, say so and list the top 8-10 stories they should write.]
+
+---
+
 ## 📚 Additional Prep Recommendations
 
 [5-7 specific, company-tailored action items. Examples:]
