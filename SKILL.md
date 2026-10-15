@@ -38,6 +38,11 @@ Optional, ask only if it would change the guide:
 - Interview date, to prioritize prep actions
 - Rounds already completed
 
+If the user gives only a job or requisition ID (no company or URL), try one or two quick searches
+to identify the posting. If it can't be identified, ask for the company name or posting URL. Don't guess.
+If the ID the user gave conflicts with the ID on a posting URL they later provide, say so and ask
+them to confirm which role they are interviewing for. Continue with the posting provided.
+
 Do not start research until you have the company/URL **and** candidate background.
 
 ---
@@ -55,6 +60,12 @@ Use whichever Google Drive tools are connected (names vary, e.g. `search_files`,
 3. If the user said only "it's in my Drive", search for likely resume files by name
    (`resume`, `CV`, the user's name) and ask the user to confirm which one is current if
    there are several.
+
+**Identity check (important).** Drive searches by keyword can return resumes that belong to other
+people (for example files shared with the user). Only use a resume whose name matches the user.
+Never read from, quote, or use another person's resume. If you find several versions of the user's
+own resume, prefer the one in the folder the user named, and tell the user which file you used. If it's
+unclear, ask which one is current.
 
 Read the resume first, then skim any other files in the folder. Extract using
 `references/candidate-profile-template.md`:
@@ -77,10 +88,17 @@ Read the file from the document context or from `/mnt/user-data/uploads/`. Extra
 Extract what is there. If total years of experience, current role, or biggest program are missing,
 ask at most two targeted follow-up questions before generating.
 
-**All paths:** Ground every answer in what was actually provided. Extend naturally from real
-experience, but never invent employers, projects, titles, or metrics that the candidate's
-materials don't support. Where an answer needs a metric the resume lacks, write a clearly
-marked placeholder such as `[your metric here]` rather than making one up.
+**All paths:** Ground every answer in what was actually provided. Never invent employers,
+projects, titles, or metrics that the candidate's materials don't support. Use two tags so the
+candidate always knows what is real:
+
+- `[add: ...]` for a number, date, team size, or detail the materials don't state. The candidate fills it in.
+- `[verify: ...]` for any scenario detail you drafted as a plausible scaffold (who disagreed, what
+  the options were, what steps were taken) that is not in the materials. The candidate keeps it only if true.
+
+Facts stated in the resume (titles, companies, dates, stated metrics) need no tag. Include a short legend
+of both tags at the top of the guide. Keep scaffolding minimal: prefer an `[add: ...]` prompt over
+a long invented story.
 
 **Privacy:** Use the candidate's materials only to produce this guide. Don't paste personal
 contact details (phone, address, email) into the guide.
@@ -90,6 +108,10 @@ contact details (phone, address, email) into the guide.
 ## Step 2 — Research the Company's TPM Interview Process
 
 Run targeted searches and use web fetch for full pages where snippets are thin.
+
+**Start with the company's official sources.** Many companies publish their own interview process
+(careers site, "how we hire" or interview-prep pages). Fetch those first and treat them as the
+authoritative baseline. Use community sources to add detail about what candidates actually experience.
 
 **Search targets:**
 - `[Company] TPM interview process` (Glassdoor, Blind, Reddit, interview-prep sites)
@@ -121,6 +143,10 @@ Before drafting, map internally:
 - Which stories carry the strongest signal for this company's values?
 - Where is the candidate's background **thin** relative to this company's expectations?
   These become the Gaps & Coaching Notes.
+- Compare the candidate's current or most recent level with the target level. If the target is a step up,
+  make "level jump" an explicit gap and prepare scope and influence stories accordingly.
+- Compare the posting's basic and preferred qualifications to the resume. List any the resume
+  doesn't evidence, and flag them as gaps.
 - Which 1-2 frameworks fit each round (see `references/frameworks.md`)?
 - Calibrate depth and scope to the target level. A Senior TPM answer shows cross-team
   influence and ambiguity handling. A Principal answer shows org-level strategy and
@@ -136,6 +162,13 @@ Always deliver the guide as a **downloadable markdown file**, not inline in chat
   if that path doesn't exist) and share it with `present_files` when available.
 - Follow the structure in `references/output-template.md` exactly.
 - In chat, add only a short summary: file link, number of rounds covered, and the top 2-3 gaps.
+
+**Length and build.** A full guide can reach 8,000-10,000 words. Build the file in sections rather than
+in one write. Default to 5 Q&As per round and include only the rounds the company actually uses or that
+sources support. Label rounds you predicted rather than confirmed by an official source as
+"(predicted)". If the user wants a shorter guide, offer a compact version (3 Q&As per round).
+
+**Voice.** Write answers the way a person speaks: plain words, short sentences, and no em dashes.
 
 **Quality bar for every Q&A:**
 - Reads like a senior TPM with 8-10 years of experience wrote it
@@ -160,6 +193,9 @@ Always deliver the guide as a **downloadable markdown file**, not inline in chat
 | Resume text is thin | Ask at most two follow-ups, then proceed |
 | Sparse public interview data | State it, infer from culture and comparable companies, flag inferences |
 | Job posting URL won't load | Ask the user to paste the posting text |
+| Drive search returns someone else's resume | Ignore it. Use only a resume that matches the user's name |
+| Job ID given with no company | Try one or two searches, then ask for the company or URL |
+| Job ID conflicts with the posting URL | Tell the user and ask them to confirm the role |
 
 ---
 

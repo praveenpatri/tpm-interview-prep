@@ -52,7 +52,14 @@ Claude accepts your background three ways:
 | **Upload** | Attach your resume (PDF, DOCX, or text) to the chat. |
 | **Paste** | Paste resume text or a short background summary. |
 
+### Reading your guide: the two tags
+- `[add: ...]` marks a number or detail your resume doesn't state. Fill it in.
+- `[verify: ...]` marks a scenario detail the guide drafted as a scaffold. Keep it only if it's true.
+
+The guide never presents an invented detail as fact, so complete every tag before you practice.
+
 ### Tips for the best output
+- If your Drive has several resume versions, name the folder or file you want used.
 - Put your resume **and** any prepared stories, past interview notes, or company research in one Drive folder.
 - Mention your target level (e.g. Senior TPM, L6) if the posting doesn't state it.
 - Tell Claude which rounds you've already finished so it can focus the guide.
