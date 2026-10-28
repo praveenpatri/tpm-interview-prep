@@ -1,3 +1,5 @@
+##Blog on my experience: https://praveenpatri.medium.com/what-if-ai-could-personalize-your-interview-prep-165e38791b89 
+
 # TPM Interview Prep Skill for Claude
 
 A Claude skill that turns a company name (or job posting URL) plus your resume into a
